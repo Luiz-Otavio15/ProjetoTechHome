@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>TechHome</title>
+  <link rel="stylesheet" href="{% static 'css/Tela1_Home.css' %}">
+</head>
+
+<body>
+
+  <!-- TOPO -->
+  <header class="cabecalho">
+    <div class="cabecalho-esquerda">
+      <h1 class="marca">TechHome</h1>
+    </div>
+
+    <div class="cabecalho-centro">
+      <input type="text" placeholder="Buscar eletrônicos..." class="input-busca">
+    </div>
+
+    <nav class="cabecalho-direita">
+      <a href="#">Produtos</a>
+      <a href="#">Contato</a>
+      <a href="#">Carrinho 🛒</a>
+    </nav>
+  </header>
+
+  <!-- BANNER -->
+  <section class="destaque">
+    <div class="destaque-texto">
+      <h2>Promoções da Semana</h2>
+      <p>Até 40% OFF em produtos selecionados</p>
+      <p>Melhores preços é aqui!</p>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <main class="conteudo">
+    <h2 class="titulo">Produtos em destaque</h2>
+
+    <div class="vitrine">
+      {% for produto in produtos %}
+      <div class="item-produto">
+        
+        <img src="{{produto.imagem.url }}" alt="{{produto.nome}}">
+        
+        <h3>{{produto.nome}}</h3>
+        <p class="valor">{{produto.preco}}</p>
+        
+        
+        <div class="acoes-produto">
+          <button class="btn-carrinho">Adicionar ao carrinho</button>
+          <button class="btn-comprar">Comprar agora</button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <p>© 2026 TechHome Direitos Autorais Para José Matheus</p>
+  </footer>
+
+</body>
+</html>
