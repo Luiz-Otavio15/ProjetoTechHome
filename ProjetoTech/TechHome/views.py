@@ -1,7 +1,7 @@
 from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404
 
-from .models import Produto
+from .models import *
 
 # Create your views here.
 
@@ -17,3 +17,24 @@ def tela_principal_tech(request):
         'produtos': produtos,
         'barra': barra
         },)
+
+def tela_contato(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        assunto = request.POST.get('assunto')
+        mensagem = request.POST.get('mensagem')
+
+        Suporte.objects.create(
+            nome=nome,
+            assunto=assunto,
+            mensagem=mensagem
+        )
+        return render(request, 'html/Tela2_contato.html', {'sucesso': True})
+    else:
+        return render(request, 'html/Tela2_Contato.html')   
+
+
+    
+
+
+

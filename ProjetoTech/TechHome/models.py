@@ -18,3 +18,12 @@ class Produto(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Suporte(models.Model):
+    nome = models.CharField(max_length=100)
+    motivo = models.TextField(max_length=100)
+    mensagem = models.TextField(max_length=300)
+
+    def __str__(self):
+        return self.nome
