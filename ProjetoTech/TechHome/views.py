@@ -6,7 +6,7 @@ from .models import *
 # Create your views here.
 
 def tela_principal_tech(request):
-    produtos = Produto.objects.all()
+    produtos = Produto.objects.all()[:5]
     barra = request.GET.get('barra')
 
     if barra:
@@ -29,12 +29,18 @@ def tela_contato(request):
             assunto=assunto,
             mensagem=mensagem
         )
-        return render(request, 'html/Tela2_contato.html', {'sucesso': True})
+        return render(request, 'html/Tela2_Contato.html', {'sucesso': True})
     else:
         return render(request, 'html/Tela2_Contato.html')   
 
 
     
+def tela_categoria(request):
+    produtos = Produto.objects.all()
+    categoria = request.GET.get('categoria')
+    
 
+    if categoria:
+        produtos = produtos.filter(categoria__nome=categoria)
 
-
+    return render(request, 'html/Tela3Categoria.html', {'produto':produtos})

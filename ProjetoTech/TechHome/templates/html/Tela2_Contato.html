@@ -8,11 +8,11 @@
 
 <head>
 
-&#x20; <meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-&#x20; <title>Contato - TechHome</title>
+  <title>Contato - TechHome</title>
 
-&#x20; <link rel="stylesheet" href="{% static 'css/Tela2_Contato.css' %}">
+  <link rel="stylesheet" href="{% static 'css/Tela2_Contato.css' %}">
 
 </head>
 
@@ -24,25 +24,25 @@
 
  <!-- TOPO -->
 
-&#x20; <header class="cabecalho">
+ <header class="cabecalho">
 
-&#x20;   <h1 class="marca">TechHome</h1>
+   <h1 class="marca">TechHome</h1>
 
 
 
-&#x20;   <nav class="menu">
+   <nav class="menu">
 
-&#x20;     <a href="{% url 'TechHome:tela_principal' %}">Início</a>
+     <a href="{% url 'TechHome:tela_principal' %}">Início</a>
 
-&#x20;     <a href="#">Produtos</a>
+     <a href="{% url 'TechHome:tela_categoria' %}">Produtos</a>
 
-&#x20;     <a href="#">Contato</a>
+     <a href="#" id="cabecalho-usando">Contato</a>
 
-&#x20;     <a href="#">Carrinho 🛒</a>
+     <a href="#">Carrinho 🛒</a>
 
-&#x20;   </nav>
+   </nav>
 
-&#x20; </header>
+ </header>
 
 
 

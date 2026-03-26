@@ -25,6 +25,7 @@ body {
   background-color: #0b0f14;
   padding: 15px 30px;
   color: white;
+  width: 100%;
 }
 
 .marca {
@@ -46,9 +47,6 @@ body {
   text-decoration: none;
 }
 
-#cabecalho-usando {
-  color: #4da3ff;
-}
 .cabecalho-direita a:hover {
   color: #4da3ff;
 }
@@ -64,7 +62,8 @@ body {
 /* CONTEÚDO */
 .conteudo {
   padding: 30px;
-  flex: 1; /* 🔥 ISSO EMPURRA O RODAPÉ */
+  flex: 1; 
+  padding-left: 60px;
 }
 
 .titulo {
@@ -76,11 +75,11 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
+  padding-top: 70px;
 }
 
 /* PRODUTO */
 .item-produto {
-  background-color: white;
   border-radius: 10px;
   padding: 15px;
   display: flex;
@@ -97,7 +96,7 @@ body {
 /* IMAGEM */
 .item-produto img {
   width: 100%;
-  height: 180px;
+  height: auto;
   object-fit: cover;
   border-radius: 8px;
 }
@@ -153,4 +152,67 @@ body {
   color: white;
   text-align: center;
   padding: 15px;
+  width: 100%;
+}
+
+.info {
+    max-width: 400px;
+}
+
+.info h2 {
+  padding-bottom: 20px;
+}
+
+.preco {
+    color: #00a650;
+    font-size: 32px;
+    padding-bottom: 20px;
+}
+
+
+@media (max-width: 600px) {
+    
+    .cabecalho{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cabecalho-centro {
+      padding: 15px;
+    }
+
+    .cabecalho-direita {
+      padding: 15px;
+    }
+    .item-produto {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+
+
+
+    .item-produto img {
+        min-width: 200px;
+        margin: 0;
+    }
+
+    .info {
+        max-width: 100%;
+    }
+
+    .preco {
+        font-size: 24px;
+    }
+
+    .btn-carrinho,.btn-comprar {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .rodape {
+      flex-direction: row;
+      padding: 15px;
+  
+    }
 }
