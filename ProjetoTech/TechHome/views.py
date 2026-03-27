@@ -1,17 +1,16 @@
 from django.http import HttpRequest
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .models import *
 
 # Create your views here.
 
 def tela_principal_tech(request):
-    produtos = Produto.objects.all()[:5]
+    produtos = Produto.objects.all()
     barra = request.GET.get('barra')
 
     if barra:
         produtos = produtos.filter(nome__icontains=barra)
-
 
     return render(request, 'html/Tela1Home.html', {
         'produtos': produtos,
@@ -44,3 +43,19 @@ def tela_categoria(request):
         produtos = produtos.filter(categoria__nome=categoria)
 
     return render(request, 'html/Tela3Categoria.html', {'produto':produtos})
+
+def tela_detalhes(request, id):
+    produto = get_object_or_404(Produto, id=id)
+    
+    return render(request, 'html/Tela4Detalhes.html', {'produto':produto})
+
+def tela_compra(request, id):
+    produto = get_object_or_404(Produto, id=id)
+    if request.method == "POST":
+        produto.estoque -= 1
+        produto.save()
+        if produto.estoque == 0:
+            produto.delete()
+    else:
+        print("Produto sem estoque")
+    return redirect("TechHome:tela_principal")

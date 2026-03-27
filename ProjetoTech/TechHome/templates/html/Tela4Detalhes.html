@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="{% static 'css/Tela4_detalhes.css'%}">
 </head>
 <body>
   <!-- TOPO -->
@@ -21,8 +22,8 @@
     </div>
 
     <nav class="cabecalho-direita">
-      <a href="#">Inicio</a>
-      <a href="Tela_Tudo.html">Produtos</a>
+      <a href="{% url 'TechHome:tela_principal'%}">Inicio</a>
+      <a href="{% url 'TechHome:tela_categoria'}">Produtos</a>
       <a href="{% url 'TechHome:tela_contato' %}">Contato</a>
       <a href="#">Carrinho 🛒</a>
     </nav>
@@ -36,23 +37,26 @@
       
       <div class="item-produto">
         
-        <img src="51lyCCeb2lL._AC_UF350,350_QL80_.jpg" alt="">
+        <img src="{{produto.imagem.url}}" alt="">
         
       </div>
       
       <div class="info">
 
-        <h2>Notebook Acer Aspire 5 A515-45-R043 - AMD Ryzen 5 5500U</h2>
+        <h2>{{produto.nome}}</h2>
 
-        <p>Notebook Acer Aspire 5 A515-45-R043 - AMD Ryzen 5 5500U</p>
+        <p>{{produto.descricao}}</p>
         <br>
-        <h1 class="preco">R$ 3.275,06</h1>
+        <h1 class="preco">R$ {{produto.preco}}</h1>
         
         
         
         <div class="acoes-produto">
-          <button class="btn-carrinho">Adicionar ao carrinho</button>
-          <button class="btn-comprar">Comprar agora</button>
+          <form action="{% url 'TechHome:tela_compra' produto.id %}" method="post">
+            {% csrf_token %}
+            <button type='submit'class="btn-comprar">Comprar agora</button>
+          </form>
+            
         </div>
        
     </div>

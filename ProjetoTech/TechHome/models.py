@@ -15,6 +15,7 @@ class Produto(models.Model):
     imagem =  models.ImageField(upload_to='fotos_produto/')
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
     data = models.DateTimeField(auto_now_add=True)
+    estoque = models.IntegerField()
 
     def __str__(self):
         return self.nome
