@@ -49,8 +49,16 @@ def tela_detalhes(request, id):
     
     return render(request, 'html/Tela4Detalhes.html', {'produto':produto})
 
+
 def tela_compra(request, id):
     produto = get_object_or_404(Produto, id=id)
+    
+    return render(request, 'html/Tela5Pagamento.html', {'produto':produto})
+
+def tela_finalizacao(request, id):
+    produto = get_object_or_404(Produto, id=id)
+
+
     if request.method == "POST":
         produto.estoque -= 1
         produto.save()
