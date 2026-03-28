@@ -1,23 +1,27 @@
-{ load static }
+{% load static %}
 
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <title>Pagamento - TechHome</title>
-  <link rel="stylesheet" href="{% static 'css/Tela5_Pagamento.css'%}">
+  <link rel="stylesheet" href="{% static 'css/Tela5_Pagamento.css' %}">
 </head>
 
 <body>
 
   <!-- CABEÇALHO -->
   <header class="cabecalho">
-    <h1 class="marca">TechHome</h1>
+    <div class="cabecalho-esquerda">
+      <h1 class="marca">TechHome</h1>
+    </div>
+
+    
 
     <nav class="menu">
-      <a href="Tela1_Home.html">Início</a>
-      <a href="#">Produtos</a>
-      <a href="Tela2_Contato.html">Contato</a>
+      <a href="{% url 'TechHome:tela_principal'%}">Inicio</a>
+      <a href="{% url 'TechHome:tela_categoria'}">Categoria</a>
+      <a href="{% url 'TechHome:tela_contato' %}">Contato</a>
     </nav>
   </header>
 
@@ -29,40 +33,28 @@
     <div class="container-pagamento">
 
       <!-- DADOS DO CLIENTE -->
-      <form class="form-pagamento">
-
-        <h3>Dados do Cliente</h3>
-
-        <input type="text" placeholder="Nome completo" required>
-        <input type="email" placeholder="Email" required>
-        <input type="text" placeholder="CPF" required>
-
-        <h3>Endereço</h3>
-
-        <input type="text" placeholder="Rua e número" required>
-        <input type="text" placeholder="Cidade" required>
-        <input type="text" placeholder="Estado" required>
-
-        <h3>Pagamento</h3>
-
-        <select>
-          <option>Cartão de Crédito</option>
-          <option>Pix</option>
-          <option>Boleto</option>
-        </select>
-
+      <form action="{% url 'TechHome:tela_finalizacao' produtos.id %}" method="post">
+        {% csrf_token %} 
         <button type="submit" class="btn-finalizar">Finalizar Compra</button>
 
       </form>
 
+       
+      
+
+
+      
+
       <!-- RESUMO -->
       <div class="resumo-compra">
         <h3>Resumo do Pedido</h3>
-
-        <p>Produto: Notebook Gamer</p>
-        <p>Preço: R$ 4.999</p>
+        <img src="{{produtos.imagem.url}}" alt="{{produtos.nome}}">
+        <p>{{produtos.nome}}</p>
+        <br>
+        <p>Preço: R$ {{produtos.preco}}</p>
         <hr>
-        <p class="total">Total: R$ 4.999</p>
+        <p class="total">Total: R$ {{produtos.preco}}</p>
+      
       </div>
 
     </div>

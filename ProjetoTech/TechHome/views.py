@@ -53,17 +53,17 @@ def tela_detalhes(request, id):
 def tela_compra(request, id):
     produto = get_object_or_404(Produto, id=id)
     
-    return render(request, 'html/Tela5Pagamento.html', {'produto':produto})
+    return render(request, 'html/Tela5Pagamento.html', {'produtos':produto})
 
 def tela_finalizacao(request, id):
-    produto = get_object_or_404(Produto, id=id)
+    produtos = get_object_or_404(Produto, id=id)
 
 
     if request.method == "POST":
-        produto.estoque -= 1
-        produto.save()
-        if produto.estoque == 0:
-            produto.delete()
+        produtos.estoque -= 1
+        produtos.save()
+        if produtos.estoque == 0:
+            produtos.delete()
     else:
         print("Produto sem estoque")
     return redirect("TechHome:tela_principal")
