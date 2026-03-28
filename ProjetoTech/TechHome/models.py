@@ -28,3 +28,10 @@ class Suporte(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class Cliente(models.Model):
+    ...
+
+class Pedido(models.Model):
+    ...
