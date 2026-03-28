@@ -137,18 +137,6 @@ body {
   background-color: #3ecf68;
 }
 
-.btn-comprar {
-  background-color: #1c6dd0;
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.btn-comprar:hover {
-  background-color: #4da3ff;
-}
 
 /* RODAPÉ */
 .rodape {
@@ -156,4 +144,53 @@ body {
   color: white;
   text-align: center;
   padding: 15px;
+}
+
+@media (max-width: 870px) {
+    
+    .cabecalho{
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .cabecalho-centro {
+      padding: 15px;
+    }
+
+    .cabecalho-direita {
+      padding: 15px;
+    }
+    .item-produto {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .input-busca {
+      width: 100%;
+    }
+
+
+    .item-produto img {
+        max-width: 200px;
+        margin: 0;
+    }
+
+    .info {
+        max-width: 100%;
+    }
+
+    .preco {
+        font-size: 24px;
+    }
+
+    .btn-carrinho {
+        font-size: 14px;
+        padding: 12px;
+    }
+    .rodape {
+      flex-direction: row;
+      padding: 15px;
+  
+    }
 }

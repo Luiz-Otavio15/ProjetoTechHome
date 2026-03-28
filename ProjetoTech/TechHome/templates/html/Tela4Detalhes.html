@@ -23,9 +23,8 @@
 
     <nav class="cabecalho-direita">
       <a href="{% url 'TechHome:tela_principal'%}">Inicio</a>
-      <a href="{% url 'TechHome:tela_categoria'}">Produtos</a>
+      <a href="{% url 'TechHome:tela_categoria'}">Categoria</a>
       <a href="{% url 'TechHome:tela_contato' %}">Contato</a>
-      <a href="#">Carrinho 🛒</a>
     </nav>
   </header>
 
@@ -47,6 +46,10 @@
 
         <p>{{produto.descricao}}</p>
         <br>
+        
+        <p>Quantidade no estoque: {{produto.estoque}}</p>
+        <br>
+
         <h1 class="preco">R$ {{produto.preco}}</h1>
         
         
