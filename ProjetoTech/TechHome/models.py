@@ -31,7 +31,15 @@ class Suporte(models.Model):
 
 
 class Cliente(models.Model):
-    ...
+    nome = models.CharField(max_length=150) 
+    email = models.CharField(max_length=150)
+    cpf = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.nome
 
 class Pedido(models.Model):
-    ...
+    rua = models.CharField()
+    cidade = models.CharField(max_length=100) 
+    estado = models.CharField(max_length=100)
+    

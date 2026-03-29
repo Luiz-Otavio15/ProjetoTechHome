@@ -19,8 +19,8 @@
     
 
     <nav class="menu">
-      <a href="{% url 'TechHome:tela_principal'%}">Inicio</a>
-      <a href="{% url 'TechHome:tela_categoria'}">Categoria</a>
+      <a href="{% url 'TechHome:tela_principal' %}">Inicio</a>
+      <a href="{% url 'TechHome:tela_categoria' %}">Categoria</a>
       <a href="{% url 'TechHome:tela_contato' %}">Contato</a>
     </nav>
   </header>
@@ -33,8 +33,29 @@
     <div class="container-pagamento">
 
       <!-- DADOS DO CLIENTE -->
-      <form action="{% url 'TechHome:tela_finalizacao' produtos.id %}" method="post">
+      <form action="{% url 'TechHome:tela_finalizacao' produtos.id %}" method="post" class="form-pagamento">
         {% csrf_token %} 
+
+        <h3>Dados do Cliente</h3>
+
+        <input type="text" placeholder="Nome completo" name="nome_completo" required>
+        <input type="email" placeholder="Email" name="email" required>
+        <input type="text" placeholder="CPF" name="cpf" required>
+
+        <h3>Endereço</h3>
+
+        <input type="text" placeholder="Rua e número" name="rua" required>
+        <input type="text" placeholder="Cidade" name="cidade" required>
+        <input type="text" placeholder="Estado" name="estado" required>
+
+        <h3>Pagamento</h3>
+
+        <select>
+          <option>Cartão de Crédito</option>
+          <option>Pix</option>
+          <option>Boleto</option>
+        </select>
+
         <button type="submit" class="btn-finalizar">Finalizar Compra</button>
 
       </form>

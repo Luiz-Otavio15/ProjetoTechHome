@@ -57,13 +57,35 @@ def tela_compra(request, id):
 
 def tela_finalizacao(request, id):
     produtos = get_object_or_404(Produto, id=id)
-
+    
 
     if request.method == "POST":
         produtos.estoque -= 1
         produtos.save()
-        if produtos.estoque == 0:
-            produtos.delete()
+        
+        nome_completo = request.POST.get('nome_completo')
+        email = request.POST.get('email')
+        cpf = request.POST.get('cpf')
+
+        rua = request.POST.get('rua')
+        cidade = request.POST.get('cidade')
+        estado = request.POST.get('estado')
+
+        Cliente.objects.create(
+            nome=nome_completo,
+            email=email,
+            cpf=cpf
+        )
+
+        Pedido.objects.create(
+            rua=rua,
+            cidade=cidade,
+            estado=estado
+        )
+    
+    
+    elif produtos.estoque == 0:
+        produtos.delete()
     else:
         print("Produto sem estoque")
     return redirect("TechHome:tela_principal")
