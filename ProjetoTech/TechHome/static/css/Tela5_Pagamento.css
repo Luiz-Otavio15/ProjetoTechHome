@@ -11,7 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: #f4f6f8;
+  background-color: rgb(244, 246, 248);
 }
 
 /* CABEÇALHO */
@@ -25,7 +25,7 @@ body {
 }
 
 .marca {
-  color: #4da3ff;
+  color: rgb(77, 163, 255);
 }
 
 .menu a {
@@ -35,7 +35,7 @@ body {
 }
 
 .menu a:hover {
-  color: #4da3ff;
+  color: rgb(77, 163, 255);
 }
 
 /* CONTEÚDO */
@@ -77,13 +77,13 @@ body {
   margin-top: 10px;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid rgb(204, 204, 204);
 }
 
 /* BOTÃO */
 .btn-finalizar {
   margin-top: 20px;
-  background-color: #1c6dd0;
+  background-color: rgb(28, 109, 208);
   color: white;
   border: none;
   padding: 12px;
@@ -92,7 +92,7 @@ body {
 }
 
 .btn-finalizar:hover {
-  background-color: #4da3ff;
+  background-color: rgb(77, 163, 255);
 }
 
 /* RESUMO */
@@ -115,7 +115,7 @@ body {
 }
 /* RODAPÉ */
 .rodape {
-  background-color: #0b0f14;
+  background-color: rgb(11, 15, 20);
   color: white;
   text-align: center;
   padding: 15px;

@@ -125,7 +125,7 @@ body {
 }
 
 .btn-carrinho {
-  background-color: #2ea44f;
+  background-color: rgb(46, 164, 79);
   color: white;
   border: none;
   padding: 10px;
@@ -135,13 +135,13 @@ body {
 }
 
 .btn-carrinho:hover {
-  background-color: #3ecf68;
+  background-color: rgb(62, 207, 104);
 }
 
 
 /* RODAPÉ */
 .rodape {
-  background-color: #0b0f14;
+  background-color: rgb(11, 15, 20);
   color: white;
   text-align: center;
   padding: 15px;
