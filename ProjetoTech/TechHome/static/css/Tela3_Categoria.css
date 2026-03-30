@@ -148,16 +148,21 @@ body {
 
 .carrossel {
     display: flex;
-    gap: 15px;
-    overflow-x: auto; /* SCROLL HORIZONTAL */
-    padding: 10px 0;
+    overflow-x: auto;
+    gap: 20px; 
+    padding: 10px 40px;
+    overflow: hidden;
 }
 
 .card {
-    min-width: 200px; /* IMPORTANTE */
-    background: white;
+    min-width: 220px;
+    background: #f5f5f5;
     border-radius: 10px;
-    padding: 10px;
+    padding: 15px;
+    display: flex;
+    flex: 0 0 auto;
+    flex-direction: column;
+    justify-content: space-between;
     transition: 0.3s;
 }
 
